@@ -3,12 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* .bookshelf-wrapper {
-    background-color: brown;
-    color: brown
-} */
-
-.book {
+.exercise {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     /* background-color: brown; */
@@ -18,7 +13,7 @@ body {
     grid-gap: 1rem;
 }
 
-.book > div {
+.exercise > div {
     background-color:#212121;
     padding: 1rem;
     margin: 0rem;
@@ -26,15 +21,14 @@ body {
 
 h2 {
     margin: 0rem;
-    text-decoration: underline;
 }
 
-.book > div > p {
-    color: orange;
+.exercise > div > p {
+    color: rgb(63, 148, 205)
 }
 
-.book > div > button {
-    background-color: peru;
+.exercise > div > button {
+    background-color: rgb(63, 148, 205);
     border: none;
     padding: 0.5rem;
     font-weight: 600;
@@ -53,7 +47,7 @@ h2 {
 }
 .new-book {
     position: relative;
-    background-color: peru;
+    background-color: rgb(63, 148, 205);
     border: none;
     padding: 0.5rem;
     font-weight: 600;
