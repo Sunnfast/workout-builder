@@ -1,15 +1,19 @@
+:root {
+    --darkBlue: #1a4765;
+    --blueAccent: rgb(63, 148, 205);
+    --textColorLight: white;
+    --veryDarkGray: #212121;
+}
+
 body {
-    background-color: rgb(107, 52, 52);
+    background-color: #1a4765;
     font-family: 'Poppins', sans-serif;
 }
 
 .exercise {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    /* background-color: brown; */
-    color: white;
-    /* padding-bottom: 1rem;
-    padding-top: 0rem; */
+    color: var(--textColorLight);
     grid-gap: 1rem;
 }
 
@@ -24,14 +28,16 @@ h2 {
 }
 
 .exercise > div > p {
-    color: rgb(63, 148, 205)
+    color: var(--blueAccent);
+    margin: 0.25rem;
 }
 
 .exercise > div > button {
-    background-color: rgb(63, 148, 205);
+    background-color: var(--blueAccent);
     border: none;
     padding: 0.5rem;
     font-weight: 600;
+    
 }
 
 .btn {
@@ -39,7 +45,7 @@ h2 {
     position: absolute;
     bottom: 0;
     position: fixed;
-    background-color: #212121;
+    background-color: var(--veryDarkGray);
     width: 100%;
     left: 0;
     justify-content: space-evenly;
@@ -47,7 +53,7 @@ h2 {
 }
 .new-book {
     position: relative;
-    background-color: rgb(63, 148, 205);
+    background-color: var(--blueAccent);
     border: none;
     padding: 0.5rem;
     font-weight: 600;
@@ -56,7 +62,7 @@ h2 {
 
 .remove-all {
     position: relative;
-    background-color: peru;
+    background-color: var(--blueAccent);
     border: none;
     padding: 0.5rem;
     font-weight: 600;
@@ -68,7 +74,7 @@ h2 {
 .remove-book-btn:hover, .remove-book-btn:focus,
 .read-state-btn:hover, .read-state-btn:focus {
     cursor: pointer;
-    color: peru;
+    color: var(--blueAccent);
     background-color: black;
 }
 
