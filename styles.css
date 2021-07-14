@@ -83,7 +83,7 @@ h2 {
 }
 
 .author {
-    color: white;
+    color: var(--textColorLight);
     position: relative;
     margin-right: 1rem;
     font-size: 0.75em;
@@ -92,7 +92,7 @@ h2 {
 
 .author a {
     text-decoration: none;
-    color: white;
+    color: var(--textColorLight);
 }
 
 .author a:hover, .author a:focus {

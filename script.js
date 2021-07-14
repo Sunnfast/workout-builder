@@ -45,7 +45,7 @@ function displayAllExercises(library) { // displays pre-existing exercises
         targetPara.appendChild(targetNode);
 
         let weightPara = document.createElement('p');
-        let weightNode = document.createTextNode(library[i].weight);
+        let weightNode = document.createTextNode(library[i].weight + " lbs");
         weightPara.appendChild(weightNode);
 
         let setsPara = document.createElement('p');
@@ -90,11 +90,10 @@ function displayAllExercises(library) { // displays pre-existing exercises
 
         statusToggleBtn.onclick = function(e) {
             status1 = myLibrary[i].status;
-            if (status1 == "complete") {
+            if (status1 == "complete " + String.fromCodePoint(0x1F4AA)) {
                 myLibrary[i].status = "incomplete";
-             
             } else {
-                myLibrary[i].status = "complete";
+                myLibrary[i].status = "complete " + String.fromCodePoint(0x1F4AA);      
             }
 
             statusPara.removeChild(statusNode); // refactor: just replace childnode instead of deleting and re-appending
@@ -169,17 +168,17 @@ function addNewestExercise(library) {
         let i = thisExercise.dataset.indexNumber;
         let status1 = myLibrary[i].status;
     
-        if (status1 == "complete") {
+        if (status1 == "complete " + String.fromCodePoint(0x1F4AA)) {
             myLibrary[i].status = "incomplete";
         } else {
-            myLibrary[i].status = "complete";      
+            myLibrary[i].status = "complete " + String.fromCodePoint(0x1F4AA);      
         }
         statusPara.removeChild(statusNode);// refactor: just replace childnode instead of deleting and re-appending; replaceChild()
         statusNode = document.createTextNode("Status: " + library[i].status);
         statusPara.appendChild(statusNode);
     }
     exerciseDiv.appendChild(removeBtn);
-    exerciseDiv.appendChild(readStateToggleBtn);
+    exerciseDiv.appendChild(statusToggleBtn);
 
 }
 
