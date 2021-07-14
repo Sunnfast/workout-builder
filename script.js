@@ -1,11 +1,11 @@
-let myLibrary = [] // book objects need to be stored in an empty array
+let myLibrary = []
 myLibrary[0] = new Exercise("Bench Press", "chest, biceps, triceps", 315, "5x5", "incomplete");
 myLibrary[1] = new Exercise("Deadlift", "posterior chain", 405, "5x5", "complete");
 
 
-const newExercise = document.getElementById("new-book-btn").addEventListener("click", function() {
+const newExercise = document.getElementById("new-exercise-btn").addEventListener("click", function() {
     addExercise();
-    addNewestBook(myLibrary);
+    addNewestExercise(myLibrary);
 });
 
 
@@ -31,7 +31,7 @@ function addExercise() {
 
 }
 
-function displayAllBooks(library) { // displays pre-existing books
+function displayAllExercises(library) { // displays pre-existing exercises
     
     let length = library.length;
 
@@ -63,14 +63,15 @@ function displayAllBooks(library) { // displays pre-existing books
         exerciseDiv.appendChild(setsPara);
         exerciseDiv.appendChild(statusPara);
 
-        let bookShelf = document.getElementById("exercise");
-        bookShelf.appendChild(exerciseDiv);
+        let exerciseContainer = document.getElementById("exercise");
+        exerciseContainer.appendChild(exerciseDiv);
+
         exerciseDiv.dataset.indexNumber = i; // set data-attribute
 
-        // remove exericse button
+        // remove exercise button
 
         let removeBtn = document.createElement("button");
-        removeBtn.classList ="remove-book-btn";
+        removeBtn.classList ="remove-exercise-btn";
         removeBtn.textContent = "Remove Exercise";
         removeBtn.onclick = function(e) {
             thisBook = e.target.parentElement;
@@ -84,7 +85,7 @@ function displayAllBooks(library) { // displays pre-existing books
 
         let statusToggleBtn = document.createElement("button");
         statusToggleBtn.textContent = "Toggle Status";
-        statusToggleBtn.classList = "read-state-btn";
+        statusToggleBtn.classList = "status-btn";
         let status1 = myLibrary[i].status;
 
         statusToggleBtn.onclick = function(e) {
@@ -108,73 +109,77 @@ function displayAllBooks(library) { // displays pre-existing books
 }
 
 
-function addNewestBook(library) {
+function addNewestExercise(library) {
     let length = library.length;
 
-    let titlePara = document.createElement('h2');
-    let titleNode = document.createTextNode(library[length-1].title);
-    titlePara.appendChild(titleNode);
+    let namePara = document.createElement('h2');
+    let nameNode = document.createTextNode(library[length-1].name);
+    namePara.appendChild(nameNode);
 
-    let authorPara = document.createElement('p');
-    let authorNode = document.createTextNode(library[length-1].author);
-    authorPara.appendChild(authorNode);
+    let targetPara = document.createElement('p');
+    let targetNode = document.createTextNode(library[length-1].target);
+    targetPara.appendChild(targetNode);
+
+    let weightPara = document.createElement('p');
+    let weightNode = document.createTextNode(library[length-1].weight);
+    weightPara.appendChild(weightNode);
+
+    let setsPara = document.createElement('p');
+    let setsNode = document.createTextNode("Sets x Reps: " + library[length-1].sets);
+    setsPara.appendChild(setsNode);
+
+    let statusPara = document.createElement('p');
+    let statusNode = document.createTextNode("Status: " + library[length-1].status);
+    statusPara.appendChild(statusNode);
+
+    let exerciseDiv = document.createElement('div');
+    exerciseDiv.appendChild(namePara);
+    exerciseDiv.appendChild(targetPara);
+    exerciseDiv.appendChild(weightPara);
+    exerciseDiv.appendChild(setsPara);
+    exerciseDiv.appendChild(statusPara);
+
+    let exerciseContainer = document.getElementById("exercise");
+    exerciseContainer.appendChild(exerciseDiv);
+
+    exerciseDiv.dataset.indexNumber = (myLibrary.length) - 1;
 
 
-    let pagePara = document.createElement('p');
-    let pageNode = document.createTextNode(library[length-1].pages + " pages");
-    pagePara.appendChild(pageNode);
 
-    let readPara = document.createElement('p');
-    let readNode = document.createTextNode("Status: " + library[length-1].readState);
-    readPara.appendChild(readNode);
-
-    let bookDiv = document.createElement('div');
-    bookDiv.appendChild(titlePara);
-    bookDiv.appendChild(authorPara);
-    bookDiv.appendChild(pagePara);
-    bookDiv.appendChild(readPara);
-
-    let bookShelf = document.getElementById("exercise");
-    bookShelf.appendChild(bookDiv);
-
-    bookDiv.dataset.indexNumber = (myLibrary.length) - 1;
-
-
-
-      // REMOVE BOOK
+      // remove exercise button
       let removeBtn = document.createElement("button");
-      removeBtn.classList ="remove-book-btn";
+      removeBtn.classList ="remove-exercise-btn";
       removeBtn.textContent = "Remove Book";
       removeBtn.onclick = function(e) {
-          thisBook = e.originalTarget.parentElement;
-          thisBookIndex = thisBook.dataset.indexNumber;
-          myLibrary.splice(myLibrary[thisBookIndex], 1);
-          console.log(thisBook.querySelector('h2').textContent + " removed."); // debug helper
-          thisBook.remove();
+          thisExercise = e.originalTarget.parentElement;
+          thisExerciseIndex = thisExercise.dataset.indexNumber;
+          myLibrary.splice(myLibrary[thisExerciseIndex], 1);
+          console.log(thisExercise.querySelector('h2').textContent + " removed."); // debug helper
+          thisExercise.remove();
     };
 
-    // readState toggle button
+    // status toggle button
 
-    let readStateToggleBtn = document.createElement("button");
-    readStateToggleBtn.textContent = "Change Read/Unread";
-    readStateToggleBtn.classList = "read-state-btn";
+    let statusToggleBtn = document.createElement("button");
+    statusToggleBtn.textContent = "Toggle Status";
+    statusToggleBtn.classList = "status-btn";
 
-    readStateToggleBtn.onclick = function(e) {
-        thisBook = e.originalTarget.parentElement;
-        let i = thisBook.dataset.indexNumber;
-        let readState1 = myLibrary[i].readState;
+    statusToggleBtn.onclick = function(e) {
+        thisExercise = e.originalTarget.parentElement;
+        let i = thisExercise.dataset.indexNumber;
+        let status1 = myLibrary[i].status;
     
-        if (readState1 == "read") {
-            myLibrary[i].readState = "unread";
+        if (status1 == "complete") {
+            myLibrary[i].status = "incomplete";
         } else {
-            myLibrary[i].readState = "read";      
+            myLibrary[i].status = "complete";      
         }
-        readPara.removeChild(readNode);// refactor: just replace childnode instead of deleting and re-appending; replaceChild()
-        readNode = document.createTextNode("Status: " + library[i].readState);
-        readPara.appendChild(readNode);
+        statusPara.removeChild(statusNode);// refactor: just replace childnode instead of deleting and re-appending; replaceChild()
+        statusNode = document.createTextNode("Status: " + library[i].status);
+        statusPara.appendChild(statusNode);
     }
-    bookDiv.appendChild(removeBtn);
-    bookDiv.appendChild(readStateToggleBtn);
+    exerciseDiv.appendChild(removeBtn);
+    exerciseDiv.appendChild(readStateToggleBtn);
 
 }
 
@@ -192,5 +197,5 @@ function addNewestBook(library) {
 
 
 
-displayAllBooks(myLibrary);  
+displayAllExercises(myLibrary);  
 // displays books in the background

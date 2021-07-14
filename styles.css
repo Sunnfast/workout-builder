@@ -51,7 +51,7 @@ h2 {
     justify-content: space-evenly;
     padding: 1rem;
 }
-.new-book {
+.new-exercise {
     position: relative;
     background-color: var(--blueAccent);
     border: none;
@@ -69,15 +69,32 @@ h2 {
     text-align: center; 
 }
 
-.new-book:hover, .new-book:focus, 
+.new-exercise:hover, .new-exercise:focus, 
 .remove-all:hover, .remove-all:focus,
-.remove-book-btn:hover, .remove-book-btn:focus,
-.read-state-btn:hover, .read-state-btn:focus {
+.remove-exercise-btn:hover, .remove-exercise-btn:focus,
+.status-btn:hover, .status-btn:focus {
     cursor: pointer;
     color: var(--blueAccent);
     background-color: black;
 }
 
-.read-state-btn {
+.status-btn {
     margin: 0.5rem;
+}
+
+.author {
+    color: white;
+    position: relative;
+    margin-right: 1rem;
+    font-size: 0.75em;
+    padding: 1rem;
+}
+
+.author a {
+    text-decoration: none;
+    color: white;
+}
+
+.author a:hover, .author a:focus {
+    color: var(--blueAccent);
 }
