@@ -208,6 +208,41 @@ function addNewestExercise(library) {
 // });
 
 
+// localStorage
 
-displayAllExercises(myLibrary);  
-// displays books in the background
+// let testArray = [{name: "bob", age: 2}, {name: "jan", age: 4}];
+// localStorage.setItem('testArray', JSON.stringify(testArray));
+// let retrievedArray = JSON.parse(localStorage.getItem('testArray'));
+
+let retrievedLibrary;
+
+document.getElementById("save-btn").addEventListener("click", function() {
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+    retrievedLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+    console.log("Saved!")
+    return retrievedLibrary;
+});
+displayAllExercises(myLibrary); 
+
+
+// idea 2
+
+// if (retrievedLibrary !== "undefined") {
+//     displayAllExercises(retrievedLibrary);
+//     console.log("retrieved saved exercises!")
+// }
+
+
+// idea 1
+
+// if (retrievedLibrary == "undefined") {
+//      
+// // displays books in the background
+//     console.log('undefined hit')
+
+// } else {
+//     displayAllExercises(retrievedLibrary);
+//     console.log('retrieved hit')
+// }
+
+

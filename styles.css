@@ -3,10 +3,11 @@
     --blueAccent: rgb(63, 148, 205);
     --textColorLight: white;
     --veryDarkGray: #212121;
+    --darkestColor: black;
 }
 
 body {
-    background-color: #1a4765;
+    background-color: var(--darkBlue);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -18,7 +19,7 @@ body {
 }
 
 .exercise > div {
-    background-color:#212121;
+    background-color:var(--veryDarkGray);
     padding: 1rem;
     margin: 0rem;
 }
@@ -66,6 +67,20 @@ h2 {
     font-weight: 700;
 }
 
+.save {
+    position: relative;
+    background-color: var(--blueAccent);
+    border: none;
+    padding: 1rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 0.5em;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
 .remove-all {
     position: relative;
     background-color: var(--blueAccent);
@@ -78,10 +93,11 @@ h2 {
 .new-exercise:hover, .new-exercise:focus, 
 .remove-all:hover, .remove-all:focus,
 .remove-exercise-btn:hover, .remove-exercise-btn:focus,
-.status-btn:hover, .status-btn:focus {
+.status-btn:hover, .status-btn:focus,
+.save:hover, .save:focus {
     cursor: pointer;
     color: var(--blueAccent);
-    background-color: black;
+    background-color: var(--darkestColor);
 }
 
 .status-btn {
