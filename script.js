@@ -1,6 +1,6 @@
 let myLibrary = []
-myLibrary[0] = new Exercise("Bench Press", "chest, biceps, triceps", 315, "5x5", "incomplete");
-myLibrary[1] = new Exercise("Deadlift", "posterior chain", 405, "5x5", "complete");
+myLibrary[0] = new Exercise("Bench Press", "chest, biceps, triceps", 315, 5, 5, "incomplete");
+myLibrary[1] = new Exercise("Deadlift", "posterior chain", 405, 5, 5, "incomplete");
 
 
 const newExercise = document.getElementById("new-exercise-btn").addEventListener("click", function() {
@@ -10,11 +10,12 @@ const newExercise = document.getElementById("new-exercise-btn").addEventListener
 
 
 
-function Exercise(name, target, weight, sets, status) {
+function Exercise(name, target, weight, sets, reps, status) {
     this.name = name;
     this.target = target;
     this.weight = weight;
     this.sets = sets;
+    this.reps = reps;
     this.status = status;
 }
 
@@ -22,10 +23,11 @@ function addExercise() {
     let name = window.prompt("Enter the name of the lift.");
     let target = window.prompt("Enter the targeted bodypart.");
     let weight = window.prompt("Enter the weight of the exercise.")
-    let sets = window.prompt("Enter the number of sets and reps.");
+    let sets = window.prompt("Enter the number of sets.");
+    let reps = window.prompt("Enter the number of reps per set.");
     let status = "incomplete";
     
-    const exercise = new Exercise(name, target, weight, sets, status);
+    const exercise = new Exercise(name, target, weight, sets, reps, status);
 
     myLibrary.push(exercise);
 
@@ -49,8 +51,11 @@ function displayAllExercises(library) { // displays pre-existing exercises
         weightPara.appendChild(weightNode);
 
         let setsPara = document.createElement('p');
-        let setsNode = document.createTextNode("Sets x Reps: " + library[i].sets);
+        let setsNode = document.createTextNode("Sets: " + library[i].sets);
+        let repsPara = document.createElement('p');
+        let repsNode = document.createTextNode("Reps: " + library[i].reps);
         setsPara.appendChild(setsNode);
+        repsPara.appendChild(repsNode);
 
         let statusPara = document.createElement('p');
         let statusNode = document.createTextNode("Status: " + library[i].status);
@@ -61,6 +66,7 @@ function displayAllExercises(library) { // displays pre-existing exercises
         exerciseDiv.appendChild(targetPara);
         exerciseDiv.appendChild(weightPara);
         exerciseDiv.appendChild(setsPara);
+        exerciseDiv.appendChild(repsPara);
         exerciseDiv.appendChild(statusPara);
 
         let exerciseContainer = document.getElementById("exercise");
@@ -112,23 +118,26 @@ function addNewestExercise(library) {
     let length = library.length;
 
     let namePara = document.createElement('h2');
-    let nameNode = document.createTextNode(library[length-1].name);
+    let nameNode = document.createTextNode(library[length - 1].name);
     namePara.appendChild(nameNode);
 
     let targetPara = document.createElement('p');
-    let targetNode = document.createTextNode(library[length-1].target);
+    let targetNode = document.createTextNode(library[length - 1].target);
     targetPara.appendChild(targetNode);
 
     let weightPara = document.createElement('p');
-    let weightNode = document.createTextNode(library[length-1].weight);
+    let weightNode = document.createTextNode(library[length - 1].weight);
     weightPara.appendChild(weightNode);
 
     let setsPara = document.createElement('p');
-    let setsNode = document.createTextNode("Sets x Reps: " + library[length-1].sets);
+    let setsNode = document.createTextNode("Sets: " + library[length - 1].sets);
+    let repsPara = document.createElement('p');
+    let repsNode = document.createTextNode("Reps: " + library[length - 1].reps);
     setsPara.appendChild(setsNode);
+    repsPara.appendChild(repsNode);
 
     let statusPara = document.createElement('p');
-    let statusNode = document.createTextNode("Status: " + library[length-1].status);
+    let statusNode = document.createTextNode("Status: " + library[length - 1].status);
     statusPara.appendChild(statusNode);
 
     let exerciseDiv = document.createElement('div');
@@ -136,6 +145,7 @@ function addNewestExercise(library) {
     exerciseDiv.appendChild(targetPara);
     exerciseDiv.appendChild(weightPara);
     exerciseDiv.appendChild(setsPara);
+    exerciseDiv.appendChild(repsPara);
     exerciseDiv.appendChild(statusPara);
 
     let exerciseContainer = document.getElementById("exercise");
@@ -184,14 +194,17 @@ function addNewestExercise(library) {
 
 // function removeAll(library) {
 //     library = [];
-//     // displayAllBooks(library);
+//     displayAllExercises(library);
+//     library[0] = [];
+//     library[1] = []
+//     return library[0], library[1];
 // }
 
 // let removeAllBtn = document.getElementById("remove-all");
 // removeAllBtn.addEventListener("click", function() {
 //     removeAll(myLibrary);
 //     console.log('remove all clicked')
-//     displayAllBooks(myLibrary);
+//     // displayAllBooks(myLibrary);
 // });
 
 
