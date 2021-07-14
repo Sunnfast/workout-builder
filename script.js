@@ -23,7 +23,7 @@ function addExercise() {
     let target = window.prompt("Enter the targeted bodypart.");
     let weight = window.prompt("Enter the weight of the exercise.")
     let sets = window.prompt("Enter the number of sets and reps.");
-    let status = window.prompt("Enter whether you have completed the exercise or not.");
+    let status = "incomplete";
     
     const exercise = new Exercise(name, target, weight, sets, status);
 
