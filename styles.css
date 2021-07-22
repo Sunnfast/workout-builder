@@ -120,3 +120,19 @@ h2 {
 .author a:hover, .author a:focus {
     color: var(--blueAccent);
 }
+
+.status {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bolder;
+}
+
+/* .test-paragraph {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+} */
+
+.target-paragraph {
+    font-style: italic;
+}

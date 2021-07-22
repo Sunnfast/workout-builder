@@ -44,28 +44,37 @@ function displayAllExercises(library) { // displays pre-existing exercises
 
         let targetPara = document.createElement('p');
         let targetNode = document.createTextNode(library[i].target);
+        targetPara.classList.add("target-paragraph");
         targetPara.appendChild(targetNode);
 
         let weightPara = document.createElement('p');
-        let weightNode = document.createTextNode(library[i].weight + " lbs");
+        let weightNode = document.createTextNode(library[i].sets + " sets x " + library[i].reps + " reps @ "+ library[i].weight + " lbs");
         weightPara.appendChild(weightNode);
 
-        let setsPara = document.createElement('p');
-        let setsNode = document.createTextNode("Sets: " + library[i].sets);
+        // let setsPara = document.createElement('p');
+        // let setsNode = document.createTextNode("Sets: " + library[i].sets + " ");
+        let completedPara = document.createElement('p');
+        let completedNode = document.createTextNode("Sets Completed: ")
+        completedPara.classList.add("test-paragraph");
+        // setsPara.classList.add("test-paragraph");
+
         let repsPara = document.createElement('p');
-        let repsNode = document.createTextNode("Reps: " + library[i].reps);
-        setsPara.appendChild(setsNode);
-        repsPara.appendChild(repsNode);
+
+        // setsPara.appendChild(setsNode);
+        completedPara.appendChild(completedNode);
+        // repsPara.appendChild(repsNode);
 
         let statusPara = document.createElement('p');
         let statusNode = document.createTextNode("Status: " + library[i].status);
+        statusPara.classList.add("status");
         statusPara.appendChild(statusNode);
 
         let exerciseDiv = document.createElement('div');
         exerciseDiv.appendChild(namePara);
         exerciseDiv.appendChild(targetPara);
         exerciseDiv.appendChild(weightPara);
-        exerciseDiv.appendChild(setsPara);
+        // exerciseDiv.appendChild(setsPara);
+        exerciseDiv.appendChild(completedPara);
         exerciseDiv.appendChild(repsPara);
         exerciseDiv.appendChild(statusPara);
 
