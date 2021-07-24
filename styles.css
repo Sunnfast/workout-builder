@@ -137,6 +137,15 @@ h2 {
     font-style: italic;
 }
 
+.set-counter-btn {
+    background-color: var(--blueAccent);
+    border: none;
+    padding: 0.5rem;
+    font-weight: 600;
+    border-radius: 0.5em;
+    margin-left: 1rem;
+}
+
 .set-counter-btn:hover {
     background-color: var(--textColorLight);
 }

@@ -56,11 +56,17 @@ function displayAllExercises(library) { // displays pre-existing exercises
 
         let completedPara = document.createElement('p');
         let completedNode = document.createTextNode("Sets Completed: " + library[i].setsCompleted)
-        completedPara.classList.add("test-paragraph");
+        let setCounterBtn = document.createElement("button")
+
+        setCounterBtn.classList = "set-counter-btn";
+        setCounterBtn.textContent = String.fromCodePoint(0x2714);
+        // completedNode2.innerText = "test";
+        // completedPara.classList.add("test-paragraph");
 
         let repsPara = document.createElement('p');
 
         completedPara.appendChild(completedNode);
+        completedPara.appendChild(setCounterBtn);
 
         let statusPara = document.createElement('p');
         let statusNode = document.createTextNode("Status: " + library[i].status);
@@ -114,20 +120,23 @@ function displayAllExercises(library) { // displays pre-existing exercises
         }
        
         // sets counter button
-        let setCounterBtn = document.createElement("button");        
-        setCounterBtn.classList = "set-counter-btn";
-        setCounterBtn.textContent = String.fromCodePoint(0x2714);
+        // let setCounterBtn = document.createElement("button");        
+        // setCounterBtn.classList = "set-counter-btn";
+        // setCounterBtn.textContent = String.fromCodePoint(0x2714);
 
         setCounterBtn.onclick = function(e) {
             myLibrary[i].setsCompleted = myLibrary[i].setsCompleted + 1;
+
+            completedPara.removeChild(setCounterBtn);
             completedPara.removeChild(completedNode);
             completedNode = document.createTextNode("Sets Completed: " + library[i].setsCompleted);
             completedPara.appendChild(completedNode);
+            completedPara.appendChild(setCounterBtn);
         }
 
         exerciseDiv.appendChild(removeBtn);
         exerciseDiv.appendChild(statusToggleBtn);
-        exerciseDiv.appendChild(setCounterBtn);
+        // exerciseDiv.appendChild(setCounterBtn);
 
     }
 }
