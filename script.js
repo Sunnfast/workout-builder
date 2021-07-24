@@ -1,6 +1,6 @@
 let myLibrary = []
-myLibrary[0] = new Exercise("Bench Press", "chest, biceps, triceps", 315, 5, 5, "incomplete");
-myLibrary[1] = new Exercise("Deadlift", "posterior chain", 405, 5, 5, "incomplete");
+myLibrary[0] = new Exercise("Bench Press", "chest, biceps, triceps", 315, 5, 5, "incomplete", 0);
+myLibrary[1] = new Exercise("Deadlift", "posterior chain", 405, 5, 5, "incomplete", 0);
 
 let setsCompleted
 
@@ -11,13 +11,14 @@ const newExercise = document.getElementById("new-exercise-btn").addEventListener
 
 
 
-function Exercise(name, target, weight, sets, reps, status) {
+function Exercise(name, target, weight, sets, reps, status, setsCompleted) {
     this.name = name;
     this.target = target;
     this.weight = weight;
     this.sets = sets;
     this.reps = reps;
     this.status = status;
+    this.setsCompleted = setsCompleted;
 }
 
 function addExercise() {
@@ -27,8 +28,9 @@ function addExercise() {
     let sets = window.prompt("Enter the number of sets.");
     let reps = window.prompt("Enter the number of reps per set.");
     let status = "incomplete";
+    let setsCompleted = 0;
     
-    const exercise = new Exercise(name, target, weight, sets, reps, status);
+    const exercise = new Exercise(name, target, weight, sets, reps, status, setsCompleted);
 
     myLibrary.push(exercise);
 
@@ -53,7 +55,7 @@ function displayAllExercises(library) { // displays pre-existing exercises
         weightPara.appendChild(weightNode);
 
         let completedPara = document.createElement('p');
-        let completedNode = document.createTextNode("Sets Completed: " + setsCompleted)
+        let completedNode = document.createTextNode("Sets Completed: " + library[i].setsCompleted)
         completedPara.classList.add("test-paragraph");
 
         let repsPara = document.createElement('p');
@@ -114,19 +116,14 @@ function displayAllExercises(library) { // displays pre-existing exercises
         // sets counter button
         let setCounterBtn = document.createElement("button");        
         setCounterBtn.classList = "set-counter-btn";
-
-        setCounterBtn.onclick = function(e) {
-
-            if (setsCompleted == "undefined") {
-                setsCompleted = 1;
-                return setsCompleted;
-            }
-        }
-
-        // needs to be built in the constructor
-
         setCounterBtn.textContent = String.fromCodePoint(0x2714);
 
+        setCounterBtn.onclick = function(e) {
+            myLibrary[i].setsCompleted = myLibrary[i].setsCompleted + 1;
+            completedPara.removeChild(completedNode);
+            completedNode = document.createTextNode("Sets Completed: " + library[i].setsCompleted);
+            completedPara.appendChild(completedNode);
+        }
 
         exerciseDiv.appendChild(removeBtn);
         exerciseDiv.appendChild(statusToggleBtn);
