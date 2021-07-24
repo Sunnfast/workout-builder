@@ -2,6 +2,7 @@ let myLibrary = []
 myLibrary[0] = new Exercise("Bench Press", "chest, biceps, triceps", 315, 5, 5, "incomplete");
 myLibrary[1] = new Exercise("Deadlift", "posterior chain", 405, 5, 5, "incomplete");
 
+let setsCompleted
 
 const newExercise = document.getElementById("new-exercise-btn").addEventListener("click", function() {
     addExercise();
@@ -51,18 +52,13 @@ function displayAllExercises(library) { // displays pre-existing exercises
         let weightNode = document.createTextNode(library[i].sets + " sets x " + library[i].reps + " reps @ "+ library[i].weight + " lbs");
         weightPara.appendChild(weightNode);
 
-        // let setsPara = document.createElement('p');
-        // let setsNode = document.createTextNode("Sets: " + library[i].sets + " ");
         let completedPara = document.createElement('p');
-        let completedNode = document.createTextNode("Sets Completed: ")
+        let completedNode = document.createTextNode("Sets Completed: " + setsCompleted)
         completedPara.classList.add("test-paragraph");
-        // setsPara.classList.add("test-paragraph");
 
         let repsPara = document.createElement('p');
 
-        // setsPara.appendChild(setsNode);
         completedPara.appendChild(completedNode);
-        // repsPara.appendChild(repsNode);
 
         let statusPara = document.createElement('p');
         let statusNode = document.createTextNode("Status: " + library[i].status);
@@ -73,7 +69,6 @@ function displayAllExercises(library) { // displays pre-existing exercises
         exerciseDiv.appendChild(namePara);
         exerciseDiv.appendChild(targetPara);
         exerciseDiv.appendChild(weightPara);
-        // exerciseDiv.appendChild(setsPara);
         exerciseDiv.appendChild(completedPara);
         exerciseDiv.appendChild(repsPara);
         exerciseDiv.appendChild(statusPara);
@@ -116,8 +111,26 @@ function displayAllExercises(library) { // displays pre-existing exercises
             statusPara.appendChild(statusNode);
         }
        
+        // sets counter button
+        let setCounterBtn = document.createElement("button");        
+        setCounterBtn.classList = "set-counter-btn";
+
+        setCounterBtn.onclick = function(e) {
+
+            if (setsCompleted == "undefined") {
+                setsCompleted = 1;
+                return setsCompleted;
+            }
+        }
+
+        // needs to be built in the constructor
+
+        setCounterBtn.textContent = String.fromCodePoint(0x2714);
+
+
         exerciseDiv.appendChild(removeBtn);
         exerciseDiv.appendChild(statusToggleBtn);
+        exerciseDiv.appendChild(setCounterBtn);
 
     }
 }

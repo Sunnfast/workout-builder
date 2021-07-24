@@ -136,3 +136,7 @@ h2 {
 .target-paragraph {
     font-style: italic;
 }
+
+.set-counter-btn:hover {
+    background-color: var(--textColorLight);
+}
