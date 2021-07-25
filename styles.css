@@ -23,6 +23,7 @@ body {
     background-color:var(--veryDarkGray);
     padding: 1rem;
     margin: 0rem;
+    border-radius: 1em;
 }
 
 h2 {
@@ -113,7 +114,7 @@ h2 {
     font-weight: 600;
     border-radius: 0.5em;
     margin-left: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .author {
@@ -134,10 +135,10 @@ h2 {
 }
 
 .status {
-    display: flex;
     justify-content: flex-end;
     font-weight: bolder;
     align-items: center;
+    font-size: 0.6em;
 }
 
 
@@ -187,4 +188,14 @@ h2 {
     border-radius: 0.5em;
     margin-left: 0.6rem;
     margin-bottom: 1rem;
+}
+
+@media  (max-width: 415px) {
+    .status-btn {
+        font-size: 0.4em;
+    }
+
+    .status {
+        font-size: 0.4em;
+    }
 }
