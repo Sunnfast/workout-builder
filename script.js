@@ -56,22 +56,32 @@ function displayAllExercises(library) { // displays pre-existing exercises
 
         let completedPara = document.createElement('p');
         let completedNode = document.createTextNode("Sets Completed: " + library[i].setsCompleted)
-        let setCounterBtn = document.createElement("button")
-
+        
+        let setCounterBtn = document.createElement("button");
         setCounterBtn.classList = "set-counter-btn";
-        setCounterBtn.textContent = String.fromCodePoint(0x2714);
-        // completedNode2.innerText = "test";
-        // completedPara.classList.add("test-paragraph");
+        setCounterBtn.textContent = String.fromCodePoint(0x2B06);
+
+        let setsMinusBtn = document.createElement("button");
+        setsMinusBtn.classList = "set-minus-btn";
+        setsMinusBtn.textContent = String.fromCodePoint(0x2B07);
 
         let repsPara = document.createElement('p');
 
         completedPara.appendChild(completedNode);
         completedPara.appendChild(setCounterBtn);
+        completedPara.appendChild(setsMinusBtn);
 
         let statusPara = document.createElement('p');
-        let statusNode = document.createTextNode("Status: " + library[i].status);
+        let statusNode = document.createTextNode(library[i].status);
         statusPara.classList.add("status");
+
+        let statusToggleBtn = document.createElement("button");
+        statusToggleBtn.textContent = "Status: ";
+        statusToggleBtn.classList = "status-btn";
+
+        statusPara.appendChild(statusToggleBtn);
         statusPara.appendChild(statusNode);
+        
 
         let exerciseDiv = document.createElement('div');
         exerciseDiv.appendChild(namePara);
@@ -90,7 +100,7 @@ function displayAllExercises(library) { // displays pre-existing exercises
 
         let removeBtn = document.createElement("button");
         removeBtn.classList ="remove-exercise-btn";
-        removeBtn.textContent = "Remove Exercise";
+        removeBtn.textContent = "Remove";
         removeBtn.onclick = function(e) {
             thisBook = e.target.parentElement;
             thisBookIndex = thisBook.dataset.indexNumber;
@@ -101,9 +111,7 @@ function displayAllExercises(library) { // displays pre-existing exercises
 
         // status toggle button
 
-        let statusToggleBtn = document.createElement("button");
-        statusToggleBtn.textContent = "Toggle Status";
-        statusToggleBtn.classList = "status-btn";
+       
         let status1 = myLibrary[i].status;
 
         statusToggleBtn.onclick = function(e) {
@@ -115,14 +123,12 @@ function displayAllExercises(library) { // displays pre-existing exercises
             }
 
             statusPara.removeChild(statusNode); // refactor: just replace childnode instead of deleting and re-appending
-            statusNode = document.createTextNode("Status: " + library[i].status);
+            statusNode = document.createTextNode(library[i].status);
             statusPara.appendChild(statusNode);
         }
        
         // sets counter button
-        // let setCounterBtn = document.createElement("button");        
-        // setCounterBtn.classList = "set-counter-btn";
-        // setCounterBtn.textContent = String.fromCodePoint(0x2714);
+       
 
         setCounterBtn.onclick = function(e) {
             myLibrary[i].setsCompleted = myLibrary[i].setsCompleted + 1;
@@ -135,7 +141,7 @@ function displayAllExercises(library) { // displays pre-existing exercises
         }
 
         exerciseDiv.appendChild(removeBtn);
-        exerciseDiv.appendChild(statusToggleBtn);
+        // exerciseDiv.appendChild(statusToggleBtn);
         // exerciseDiv.appendChild(setCounterBtn);
 
     }
@@ -186,7 +192,7 @@ function addNewestExercise(library) {
       // remove exercise button
       let removeBtn = document.createElement("button");
       removeBtn.classList ="remove-exercise-btn";
-      removeBtn.textContent = "Remove Book";
+      removeBtn.textContent = "Remove";
       removeBtn.onclick = function(e) {
           thisExercise = e.originalTarget.parentElement;
           thisExerciseIndex = thisExercise.dataset.indexNumber;
@@ -212,7 +218,7 @@ function addNewestExercise(library) {
             myLibrary[i].status = "complete " + String.fromCodePoint(0x1F4AA);      
         }
         statusPara.removeChild(statusNode);// refactor: just replace childnode instead of deleting and re-appending; replaceChild()
-        statusNode = document.createTextNode("Status: " + library[i].status);
+        statusNode = document.createTextNode(library[i].status);
         statusPara.appendChild(statusNode);
     }
     exerciseDiv.appendChild(removeBtn);

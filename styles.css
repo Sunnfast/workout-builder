@@ -102,6 +102,13 @@ h2 {
 
 .status-btn {
     margin: 0.5rem;
+    background-color: var(--blueAccent);
+    border: none;
+    padding: 0.3rem;
+    font-weight: 600;
+    border-radius: 0.5em;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .author {
@@ -125,7 +132,9 @@ h2 {
     display: flex;
     justify-content: flex-end;
     font-weight: bolder;
+    align-items: center;
 }
+
 
 /* .test-paragraph {
     display: flex;
@@ -143,9 +152,24 @@ h2 {
     padding: 0.5rem;
     font-weight: 600;
     border-radius: 0.5em;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3em;
+    /* margin-top: 1rem; */
 }
 
-.set-counter-btn:hover {
+.set-counter-btn:hover,
+.set-minus-btn:hover {
     background-color: var(--textColorLight);
+}
+
+.set-minus-btn {
+    background-color: var(--blueAccent);
+    border: none;
+    padding: 0.5rem;
+    font-weight: 600;
+    border-radius: 0.5em;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.3em;
 }
