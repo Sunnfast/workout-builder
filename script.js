@@ -134,10 +134,30 @@ function displayAllExercises(library) { // displays pre-existing exercises
             myLibrary[i].setsCompleted = myLibrary[i].setsCompleted + 1;
 
             completedPara.removeChild(setCounterBtn);
+            completedPara.removeChild(setsMinusBtn);
             completedPara.removeChild(completedNode);
             completedNode = document.createTextNode("Sets Completed: " + library[i].setsCompleted);
             completedPara.appendChild(completedNode);
             completedPara.appendChild(setCounterBtn);
+            completedPara.appendChild(setsMinusBtn);
+        }
+
+        setsMinusBtn.onclick = function(e) {
+
+            if (myLibrary[i].setsCompleted == 0) {
+                myLibrary[i].setsCompleted
+            } else {
+                myLibrary[i].setsCompleted = myLibrary[i].setsCompleted -1;
+            }
+            
+
+            completedPara.removeChild(setCounterBtn);
+            completedPara.removeChild(setsMinusBtn);
+            completedPara.removeChild(completedNode);
+            completedNode = document.createTextNode("Sets Completed: " + library[i].setsCompleted);
+            completedPara.appendChild(completedNode);
+            completedPara.appendChild(setCounterBtn);
+            completedPara.appendChild(setsMinusBtn);
         }
 
         exerciseDiv.appendChild(removeBtn);

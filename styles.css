@@ -149,12 +149,12 @@ h2 {
 .set-counter-btn {
     background-color: var(--blueAccent);
     border: none;
-    padding: 0.5rem;
+    padding: 0.3rem;
     font-weight: 600;
     border-radius: 0.5em;
     margin-left: 1.5rem;
     margin-bottom: 1rem;
-    font-size: 1.3em;
+    font-size: 1.5em;
     /* margin-top: 1rem; */
 }
 
@@ -166,10 +166,10 @@ h2 {
 .set-minus-btn {
     background-color: var(--blueAccent);
     border: none;
-    padding: 0.5rem;
+    padding: 0.3rem;
     font-weight: 600;
     border-radius: 0.5em;
     margin-left: 1rem;
     margin-bottom: 1rem;
-    font-size: 1.3em;
+    font-size: 1.5em;
 }
