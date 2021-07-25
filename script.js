@@ -51,8 +51,13 @@ function displayAllExercises(library) { // displays pre-existing exercises
         targetPara.appendChild(targetNode);
 
         let weightPara = document.createElement('p');
-        let weightNode = document.createTextNode(library[i].sets + " sets x " + library[i].reps + " reps @ "+ library[i].weight + " lbs");
+        let weightNode = document.createTextNode(library[i].sets + " sets x " + library[i].reps + " reps @ "+ library[i].weight);
         weightPara.appendChild(weightNode);
+
+        let conversionBtn = document.createElement("button");
+        conversionBtn.classList = "conversion-btn";
+        conversionBtn.textContent = "lbs"
+        weightPara.appendChild(conversionBtn);
 
         let completedPara = document.createElement('p');
         let completedNode = document.createTextNode("Sets Completed: " + library[i].setsCompleted)
@@ -127,7 +132,7 @@ function displayAllExercises(library) { // displays pre-existing exercises
             statusPara.appendChild(statusNode);
         }
        
-        // sets counter button
+        // set counter buttons
        
 
         setCounterBtn.onclick = function(e) {
@@ -177,28 +182,47 @@ function addNewestExercise(library) {
 
     let targetPara = document.createElement('p');
     let targetNode = document.createTextNode(library[length - 1].target);
+    targetPara.classList.add("target-paragraph");
     targetPara.appendChild(targetNode);
 
     let weightPara = document.createElement('p');
-    let weightNode = document.createTextNode(library[length - 1].weight);
+    let weightNode = document.createTextNode(library[length - 1].sets + " sets x " + library[length - 1].reps + " reps @ "+ library[length - 1].weight + " lbs");
     weightPara.appendChild(weightNode);
+  
 
-    let setsPara = document.createElement('p');
-    let setsNode = document.createTextNode("Sets: " + library[length - 1].sets);
+    let completedPara = document.createElement('p');
+    let completedNode = document.createTextNode("Sets Completed: " + library[length - 1].setsCompleted)
+    
+    let setCounterBtn = document.createElement("button");
+    setCounterBtn.classList = "set-counter-btn";
+    setCounterBtn.textContent = String.fromCodePoint(0x2B06);
+
+    let setsMinusBtn = document.createElement("button");
+    setsMinusBtn.classList = "set-minus-btn";
+    setsMinusBtn.textContent = String.fromCodePoint(0x2B07);
+
     let repsPara = document.createElement('p');
-    let repsNode = document.createTextNode("Reps: " + library[length - 1].reps);
-    setsPara.appendChild(setsNode);
-    repsPara.appendChild(repsNode);
+
+    completedPara.appendChild(completedNode);
+    completedPara.appendChild(setCounterBtn);
+    completedPara.appendChild(setsMinusBtn);
 
     let statusPara = document.createElement('p');
-    let statusNode = document.createTextNode("Status: " + library[length - 1].status);
+    let statusNode = document.createTextNode(library[length - 1].status);
+    statusPara.classList.add("status");
+
+    let statusToggleBtn = document.createElement("button");
+    statusToggleBtn.textContent = "Status: ";
+    statusToggleBtn.classList = "status-btn";
+
+    statusPara.appendChild(statusToggleBtn);
     statusPara.appendChild(statusNode);
 
     let exerciseDiv = document.createElement('div');
     exerciseDiv.appendChild(namePara);
     exerciseDiv.appendChild(targetPara);
     exerciseDiv.appendChild(weightPara);
-    exerciseDiv.appendChild(setsPara);
+    exerciseDiv.appendChild(completedPara);
     exerciseDiv.appendChild(repsPara);
     exerciseDiv.appendChild(statusPara);
 
@@ -223,26 +247,57 @@ function addNewestExercise(library) {
 
     // status toggle button
 
-    let statusToggleBtn = document.createElement("button");
-    statusToggleBtn.textContent = "Toggle Status";
-    statusToggleBtn.classList = "status-btn";
 
     statusToggleBtn.onclick = function(e) {
         thisExercise = e.originalTarget.parentElement;
         let i = thisExercise.dataset.indexNumber;
-        let status1 = myLibrary[i].status;
+        let status1 = myLibrary[length - 1].status;
     
         if (status1 == "complete " + String.fromCodePoint(0x1F4AA)) {
-            myLibrary[i].status = "incomplete";
+            myLibrary[length-1].status = "incomplete";
         } else {
-            myLibrary[i].status = "complete " + String.fromCodePoint(0x1F4AA);      
+            myLibrary[length - 1].status = "complete " + String.fromCodePoint(0x1F4AA);      
         }
         statusPara.removeChild(statusNode);// refactor: just replace childnode instead of deleting and re-appending; replaceChild()
-        statusNode = document.createTextNode(library[i].status);
+        statusNode = document.createTextNode(library[length - 1].status);
         statusPara.appendChild(statusNode);
     }
-    exerciseDiv.appendChild(removeBtn);
-    exerciseDiv.appendChild(statusToggleBtn);
+        // set counter buttons
+       
+
+        setCounterBtn.onclick = function(e) {
+            let i = length - 1;
+            myLibrary[i].setsCompleted = myLibrary[i].setsCompleted + 1;
+
+            completedPara.removeChild(setCounterBtn);
+            completedPara.removeChild(setsMinusBtn);
+            completedPara.removeChild(completedNode);
+            completedNode = document.createTextNode("Sets Completed: " + library[i].setsCompleted);
+            completedPara.appendChild(completedNode);
+            completedPara.appendChild(setCounterBtn);
+            completedPara.appendChild(setsMinusBtn);
+        }
+
+        setsMinusBtn.onclick = function(e) {
+            let i = length - 1;    
+            if (myLibrary[i].setsCompleted == 0) {
+                myLibrary[i].setsCompleted
+            } else {
+                myLibrary[i].setsCompleted = myLibrary[i].setsCompleted -1;
+            }
+            
+
+            completedPara.removeChild(setCounterBtn);
+            completedPara.removeChild(setsMinusBtn);
+            completedPara.removeChild(completedNode);
+            completedNode = document.createTextNode("Sets Completed: " + library[length -1].setsCompleted);
+            completedPara.appendChild(completedNode);
+            completedPara.appendChild(setCounterBtn);
+            completedPara.appendChild(setsMinusBtn);
+        }
+
+        exerciseDiv.appendChild(removeBtn);
+    
 
 }
 
