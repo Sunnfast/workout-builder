@@ -9,6 +9,7 @@
 body {
     background-color: var(--darkBlue);
     font-family: 'Poppins', sans-serif;
+    font-size: 1.15em;
 }
 
 .exercise {
@@ -22,6 +23,7 @@ body {
     background-color:var(--veryDarkGray);
     padding: 1rem;
     margin: 0rem;
+    border-radius: 1em;
 }
 
 h2 {
@@ -51,6 +53,7 @@ h2 {
     left: 0;
     justify-content: space-evenly;
     padding: 1rem;
+    opacity: 0.8;
     
 }
 .new-exercise {
@@ -65,6 +68,7 @@ h2 {
     border-radius: 0.5em;
     font-size: 1.5em;
     font-weight: 700;
+    margin: 1rem;
 }
 
 .save {
@@ -79,6 +83,7 @@ h2 {
     border-radius: 0.5em;
     font-size: 1.5em;
     font-weight: 700;
+    margin: 1rem;
 }
 
 .remove-all {
@@ -94,7 +99,8 @@ h2 {
 .remove-all:hover, .remove-all:focus,
 .remove-exercise-btn:hover, .remove-exercise-btn:focus,
 .status-btn:hover, .status-btn:focus,
-.save:hover, .save:focus {
+.save:hover, .save:focus, 
+.conversion-btn:hover {
     cursor: pointer;
     color: var(--blueAccent);
     background-color: var(--darkestColor);
@@ -102,6 +108,13 @@ h2 {
 
 .status-btn {
     margin: 0.5rem;
+    background-color: var(--blueAccent);
+    border: none;
+    padding: 0.3rem;
+    font-weight: 600;
+    border-radius: 0.5em;
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .author {
@@ -119,4 +132,70 @@ h2 {
 
 .author a:hover, .author a:focus {
     color: var(--blueAccent);
+}
+
+.status {
+    justify-content: flex-end;
+    font-weight: bolder;
+    align-items: center;
+    font-size: 0.6em;
+}
+
+
+/* .test-paragraph {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+} */
+
+.target-paragraph {
+    font-style: italic;
+}
+
+.set-counter-btn {
+    background-color: var(--blueAccent);
+    border: none;
+    padding: 0.3rem;
+    font-weight: 600;
+    border-radius: 0.5em;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+    /* margin-top: 1rem; */
+}
+
+.set-counter-btn:hover,
+.set-minus-btn:hover {
+    background-color: var(--textColorLight);
+}
+
+.set-minus-btn {
+    background-color: var(--blueAccent);
+    border: none;
+    padding: 0.3rem;
+    font-weight: 600;
+    border-radius: 0.5em;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+}
+
+.conversion-btn {
+    background-color: var(--blueAccent);
+    border: none;
+    padding: 0.3rem;
+    font-weight: 600;
+    border-radius: 0.5em;
+    margin-left: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+@media  (max-width: 415px) {
+    .status-btn {
+        font-size: 0.4em;
+    }
+
+    .status {
+        font-size: 0.4em;
+    }
 }
