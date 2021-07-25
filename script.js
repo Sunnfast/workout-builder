@@ -165,9 +165,34 @@ function displayAllExercises(library) { // displays pre-existing exercises
             completedPara.appendChild(setsMinusBtn);
         }
 
+        // conversion button
+        conversionBtn.onclick = function(e) {
+            if (conversionBtn.textContent == "lbs") {
+                myLibrary[i].weight = Math.round(myLibrary[i].weight / 2.2);
+                conversionBtn.textContent = "kg"
+
+                weightPara.removeChild(weightNode);
+                weightPara.removeChild(conversionBtn);
+                weightNode = document.createTextNode(library[i].sets + " sets x " + library[i].reps + " reps @ "+ library[i].weight);
+                weightPara.appendChild(weightNode);
+                weightPara.appendChild(conversionBtn);
+
+            } else if (conversionBtn.textContent == "kg") {
+                myLibrary[i].weight =  Math.round(myLibrary[i].weight * 2.2);
+                conversionBtn.textContent = "lbs"
+
+                weightPara.removeChild(weightNode);
+                weightPara.removeChild(conversionBtn);
+                weightNode = document.createTextNode(library[i].sets + " sets x " + library[i].reps + " reps @ "+ library[i].weight);
+
+                weightPara.appendChild(weightNode);
+                weightPara.appendChild(conversionBtn);
+
+            }
+        }
+
         exerciseDiv.appendChild(removeBtn);
-        // exerciseDiv.appendChild(statusToggleBtn);
-        // exerciseDiv.appendChild(setCounterBtn);
+        
 
     }
 }
@@ -325,12 +350,12 @@ function addNewestExercise(library) {
 
 let retrievedLibrary;
 
-document.getElementById("save-btn").addEventListener("click", function() {
-    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-    retrievedLibrary = JSON.parse(localStorage.getItem('myLibrary'));
-    console.log("Saved!")
-    return retrievedLibrary;
-});
+// document.getElementById("save-btn").addEventListener("click", function() {
+//     localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+//     retrievedLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+//     console.log("Saved!")
+//     return retrievedLibrary;
+// });
 displayAllExercises(myLibrary); 
 
 
