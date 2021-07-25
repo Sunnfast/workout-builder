@@ -88,17 +88,6 @@ function displayAllExercises(library) { // displays pre-existing exercises
         completedPara.appendChild(completedNode);
         completedPara.appendChild(setCounterBtn);
         completedPara.appendChild(setsMinusBtn);
-
-        // let statusPara = document.createElement('p');
-        // let statusNode = document.createTextNode(library[i].status);
-        // statusPara.classList.add("status");
-
-        // let statusToggleBtn = document.createElement("button");
-        // statusToggleBtn.textContent = "Status: ";
-        // statusToggleBtn.classList = "status-btn";
-
-        // statusPara.appendChild(statusToggleBtn);
-        // statusPara.appendChild(statusNode);
         
 
         let exerciseDiv = document.createElement('div');
@@ -107,7 +96,6 @@ function displayAllExercises(library) { // displays pre-existing exercises
         exerciseDiv.appendChild(weightPara);
         exerciseDiv.appendChild(completedPara);
         exerciseDiv.appendChild(repsPara);
-        // exerciseDiv.appendChild(statusPara);
 
         let exerciseContainer = document.getElementById("exercise");
         exerciseContainer.appendChild(exerciseDiv);
@@ -221,6 +209,18 @@ function addNewestExercise(library) {
     let nameNode = document.createTextNode(library[length - 1].name);
     namePara.appendChild(nameNode);
 
+    let statusSpan = document.createElement('span');
+    let statusNode = document.createTextNode(library[length - 1].status);
+    statusSpan.classList.add("status");
+    statusSpan.appendChild(statusNode);
+
+    let statusToggleBtn = document.createElement("button");
+    statusToggleBtn.textContent = "Status: ";
+    statusToggleBtn.classList = "status-btn";
+
+    namePara.appendChild(statusToggleBtn);
+    namePara.appendChild(statusSpan);
+
     let targetPara = document.createElement('p');
     let targetNode = document.createTextNode(library[length - 1].target);
     targetPara.classList.add("target-paragraph");
@@ -252,24 +252,12 @@ function addNewestExercise(library) {
     completedPara.appendChild(setCounterBtn);
     completedPara.appendChild(setsMinusBtn);
 
-    let statusPara = document.createElement('p');
-    let statusNode = document.createTextNode(library[length - 1].status);
-    statusPara.classList.add("status");
-
-    let statusToggleBtn = document.createElement("button");
-    statusToggleBtn.textContent = "Status: ";
-    statusToggleBtn.classList = "status-btn";
-
-    statusPara.appendChild(statusToggleBtn);
-    statusPara.appendChild(statusNode);
-
     let exerciseDiv = document.createElement('div');
     exerciseDiv.appendChild(namePara);
     exerciseDiv.appendChild(targetPara);
     exerciseDiv.appendChild(weightPara);
     exerciseDiv.appendChild(completedPara);
     exerciseDiv.appendChild(repsPara);
-    exerciseDiv.appendChild(statusPara);
 
     let exerciseContainer = document.getElementById("exercise");
     exerciseContainer.appendChild(exerciseDiv);
@@ -303,9 +291,12 @@ function addNewestExercise(library) {
         } else {
             myLibrary[length - 1].status = "complete " + String.fromCodePoint(0x1F4AA);      
         }
-        statusPara.removeChild(statusNode);// refactor: just replace childnode instead of deleting and re-appending; replaceChild()
+        namePara.removeChild(statusSpan); // refactor: just replace childnode instead of deleting and re-appending
+        statusSpan = document.createElement('span');
         statusNode = document.createTextNode(library[length - 1].status);
-        statusPara.appendChild(statusNode);
+        statusSpan.classList.add("status");
+        statusSpan.appendChild(statusNode);
+        namePara.appendChild(statusSpan);
     }
         // set counter buttons
        
