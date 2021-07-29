@@ -84,7 +84,7 @@ I am currently developing a 'plate math' calculator using a drop down menu. In t
 ## Author
 
 - Website - [Simone Christen](https://sunnfast.github.io/)
-- Github - [@Sunnfast](https://www.github.com/Sunnfast)
+- [Github](https://www.github.com/Sunnfast)
 - [LinkedIn](https://www.linkedin.com/in/simonechristen/)
 
 
