@@ -35,9 +35,10 @@ Users should be able to:
 
 As of July 29, 2021.
 
-
+Desktop
 ![Screenshot: Desktop](/images/desktop-screenshot.png)
 
+Mobile
 ![Screenshot: Mobile](/images/mobile-screenshot.png)
 
 
@@ -89,7 +90,7 @@ I am currently developing a 'plate math' calculator using a drop down menu. In t
 
 
 ## Acknowledgments
-Thank you to all my lifter friends who use this web application, and have offered their insightful feedback.
+Thank you to all my lifter friends who use this web application, and have taken the time to offer their feedback.
 
 
 
