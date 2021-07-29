@@ -38,7 +38,11 @@ As of July 29, 2021.
 Desktop
 ![Screenshot: Desktop](/images/desktop-screenshot.png)
 
+
+
 Mobile
+
+
 ![Screenshot: Mobile](/images/mobile-screenshot.png)
 
 
