@@ -27,7 +27,7 @@ Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - Add and remove exercises as necessary
-- Count sets completed and toggle whether the overall exercise is completed
+- Count sets completed and toggle overall exercise completion
 - Adjust the weight units between imperial or metric units
 
 
