@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshots
 
-As of July 29, 2021.
+Taken on July 29, 2021.
 
 Desktop
 ![Screenshot: Desktop](/images/desktop-screenshot.png)
