@@ -77,11 +77,11 @@ function displayAllExercises(library) { // displays pre-existing exercises
         
         let setCounterBtn = document.createElement("button");
         setCounterBtn.classList = "set-counter-btn";
-        setCounterBtn.textContent = String.fromCodePoint(0x2B06);
+        setCounterBtn.textContent = "+";
 
         let setsMinusBtn = document.createElement("button");
         setsMinusBtn.classList = "set-minus-btn";
-        setsMinusBtn.textContent = String.fromCodePoint(0x2B07);
+        setsMinusBtn.textContent = "-";
 
         let repsPara = document.createElement('p');
 
@@ -240,11 +240,11 @@ function addNewestExercise(library) {
     
     let setCounterBtn = document.createElement("button");
     setCounterBtn.classList = "set-counter-btn";
-    setCounterBtn.textContent = String.fromCodePoint(0x2B06);
+    setCounterBtn.textContent = "+";
 
     let setsMinusBtn = document.createElement("button");
     setsMinusBtn.classList = "set-minus-btn";
-    setsMinusBtn.textContent = String.fromCodePoint(0x2B07);
+    setsMinusBtn.textContent = "-";
 
     let repsPara = document.createElement('p');
 
