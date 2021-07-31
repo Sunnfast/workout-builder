@@ -420,3 +420,23 @@ displayAllExercises(myLibrary);
 // }
 
 
+// weight plate calculator
+
+let plateCalcBtn = document.getElementById("calculate");
+let plateResult = document.getElementById("result-div");
+
+plateCalcBtn.onclick = function(e) {
+    let biggestPlates
+    let weightNum = Number(document.getElementById("weight-input").value);
+
+    //for lbs assuming a 45 lb barbell
+    weightNum = (weightNum - 45)/2;
+    console.log("weightNum is currently " + weightNum);
+    biggestPlates = Math.floor(weightNum / 45);
+
+    let biggestPlatesPara = document.createElement('p');
+    let biggestPlatesNode = document.createTextNode(biggestPlates + "x 45 lbs");
+    biggestPlatesPara.appendChild(biggestPlatesNode);
+    plateResult.appendChild(biggestPlatesPara);
+
+}
