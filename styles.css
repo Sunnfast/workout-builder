@@ -146,7 +146,10 @@ h2 {
 .status-btn:hover, .status-btn:focus,
 .save:hover, .save:focus, 
 .conversion-btn:hover,
-.calculator-btn:hover, .calculator-btn:focus {
+.calculator-btn:hover, .calculator-btn:focus,
+.calculate:hover, .calculate:focus,
+.set-counter-btn:hover, .set-counter-btn:focus,
+.set-minus-btn:hover, .set-minus-btn:focus {
     cursor: pointer;
     color: var(--blueAccent);
     background-color: var(--darkestColor);
@@ -163,7 +166,7 @@ h2 {
     margin-bottom: 0.5rem;
 }
 
-.author {
+/* .author {
     color: var(--textColorLight);
     position: relative;
     margin-right: 1rem;
@@ -178,7 +181,7 @@ h2 {
 
 .author a:hover, .author a:focus {
     color: var(--blueAccent);
-}
+} */
 
 .status {
     justify-content: flex-end;
@@ -207,10 +210,6 @@ h2 {
     /* margin-top: 1rem; */
 }
 
-.set-counter-btn:hover,
-.set-minus-btn:hover {
-    background-color: var(--textColorLight);
-}
 
 .set-minus-btn {
     background-color: var(--blueAccent);
@@ -234,6 +233,37 @@ h2 {
     margin-left: 0.6rem;
     margin-bottom: 1rem;
 }
+
+.result {
+color: var(--textColorLight);
+}
+
+
+.calculate {
+    background-color: var(--blueAccent);
+    border: none;
+    padding: 0.3rem;
+    font-weight: 600;
+    border-radius: 0.5em;
+    margin-top: 1rem;
+}
+
+label {
+    color: var(--textColorLight);
+}
+
+
+
+.weight-input {
+    background-color: var(--blueAccent);
+    color: var(--textColorLight);
+    border: none;
+    border-radius: 0.25em;
+    font-weight: 600;
+    font-size: 1em;
+    width: 40%;
+}
+
 
 @media  (max-width: 415px) {
     .status-btn {

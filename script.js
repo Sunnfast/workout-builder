@@ -425,11 +425,12 @@ displayAllExercises(myLibrary);
 let plateCalcBtn = document.getElementById("calculate");
 let plateResult = document.getElementById("result-div");
 
+
 plateCalcBtn.onclick = function(e) {
     let biggestPlates
     let weightNum = Number(document.getElementById("weight-input").value);
 
-    //for lbs assuming a 45 lb barbell
+    // for lbs assuming a 45 lb barbell
     weightNum = (weightNum - 45)/2;
     console.log("weightNum is currently " + weightNum);
     biggestPlates = Math.floor(weightNum / 45);
