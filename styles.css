@@ -235,9 +235,19 @@ h2 {
 }
 
 .result {
-color: var(--textColorLight);
+    color: var(--textColorLight);
+    margin: 0rem;
+    padding: 0rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
+.platesPer {
+    grid-column: 1 / 3;
+    
+}
 
 .calculate {
     background-color: var(--blueAccent);
@@ -250,8 +260,13 @@ color: var(--textColorLight);
 
 label {
     color: var(--textColorLight);
+
 }
 
+.plates {
+ 
+ font-size: 0.75em;
+}
 
 
 .weight-input {
@@ -262,6 +277,10 @@ label {
     font-weight: 600;
     font-size: 1em;
     width: 40%;
+}
+
+.plates {
+    margin: 0;
 }
 
 

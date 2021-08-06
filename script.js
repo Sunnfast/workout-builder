@@ -428,6 +428,11 @@ let plateResult = document.getElementById("result-div");
 
 plateCalcBtn.onclick = function(e) {
     let biggestPlates
+    let remainder
+    let secondBiggest
+    let thirdbiggest
+    let secondSmallest
+    let smallest 
     let weightNum = Number(document.getElementById("weight-input").value);
 
     // for lbs assuming a 45 lb barbell
@@ -435,9 +440,53 @@ plateCalcBtn.onclick = function(e) {
     console.log("weightNum is currently " + weightNum);
     biggestPlates = Math.floor(weightNum / 45);
 
+    remainder = weightNum - (biggestPlates * 45);
+    secondBiggest = Math.floor(remainder / 25);
+
+    let remainder1 = weightNum - (secondBiggest * 25);
+    thirdbiggest = Math.floor(remainder1 / 10);
+
+    remainder = weightNum - (thirdbiggest * 10);
+    secondSmallest = Math.floor(remainder / 5);
+
+    remainder = weightNum - (secondSmallest * 5);
+    smallest = Math.floor(remainder / 2.5);
+
+
     let biggestPlatesPara = document.createElement('p');
-    let biggestPlatesNode = document.createTextNode(biggestPlates + "x 45 lbs");
+    let secondBiggestPara = document.createElement('p');
+    let thirdbiggestPara = document.createElement('p');
+    let secondSmallestPara = document.createElement('p');
+    let smallestPara = document.createElement('p');
+
+
+    biggestPlatesPara.classList = "plates";
+    secondBiggestPara.classList = "plates";
+    thirdbiggestPara.classList = "plates";
+    secondSmallestPara.classList = "plates";
+    smallestPara.classList = "plates";
+
+    let biggestPlatesNode = document.createTextNode(biggestPlates + " x 45 lbs");
+    let secondBiggestNode = document.createTextNode(secondBiggest + " x 25 lbs");
+    let thirdbiggestNode = document.createTextNode(thirdbiggest + " x 10 lbs");
+    let secondSmallestNode = document.createTextNode(secondSmallest + " x 5 lbs");
+    let smallestNode = document.createTextNode(smallest + " x 2.5 lbs");
     biggestPlatesPara.appendChild(biggestPlatesNode);
+    secondBiggestPara.appendChild(secondBiggestNode);
+    thirdbiggestPara.appendChild(thirdbiggestNode);
+    secondSmallestPara.appendChild(secondSmallestNode);
+    smallestPara.appendChild(smallestNode);
+
     plateResult.appendChild(biggestPlatesPara);
+    plateResult.appendChild(secondBiggestPara);
+    plateResult.appendChild(thirdbiggestPara);
+    plateResult.appendChild(secondSmallestPara);
+    plateResult.appendChild(smallestPara);
+
+    // plateResult.removeChild(biggestPlatesPara);
+    // plateResult.removeChild(secondBiggestPara);
+
+    // plateResult.appendChild(biggestPlatesPara);
+    // plateResult.appendChild(secondBiggestPara);
 
 }
