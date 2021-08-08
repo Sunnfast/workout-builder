@@ -440,19 +440,33 @@ plateCalcBtn.onclick = function(e) {
     console.log("weightNum is currently " + weightNum);
     biggestPlates = Math.floor(weightNum / 45);
 
-    remainder = weightNum - (biggestPlates * 45);
-    secondBiggest = Math.floor(remainder / 25);
 
-    let remainder1 = weightNum - (secondBiggest * 25);
-    thirdbiggest = Math.floor(remainder1 / 10);
+    if (weightNum % 45 !== 0) {
+        remainder = weightNum - (biggestPlates * 45);
+        secondBiggest = Math.floor(remainder / 25);
+        console.log("45 check")
+        
+        if (remainder % 25 !== 0) {
+            let remainder = weightNum - (secondBiggest * 25);
+            thirdbiggest = Math.floor(remainder / 10);
+            console.log("25 check")
 
-    remainder = weightNum - (thirdbiggest * 10);
-    secondSmallest = Math.floor(remainder / 5);
 
-    remainder = weightNum - (secondSmallest * 5);
-    smallest = Math.floor(remainder / 2.5);
+            if (remainder % 10 !== 0) {
+                remainder = weightNum - (thirdbiggest * 10);
+                secondSmallest = Math.floor(remainder / 5);
+                console.log("10 check")
 
+                if (remainder % 5 !== 5) {
+                    remainder = weightNum - (secondSmallest * 5);
+                    smallest = Math.floor(remainder / 2.5);
+                    console.log(" 5 check")
 
+                }
+            }
+        }
+    }
+ 
     let biggestPlatesPara = document.createElement('p');
     let secondBiggestPara = document.createElement('p');
     let thirdbiggestPara = document.createElement('p');
