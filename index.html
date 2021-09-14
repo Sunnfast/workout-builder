@@ -1,72 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workout Builder</title>
 
-    <link rel = 'stylesheet' href = styles.css>
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- font: poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
-</head>
-<body>
-<div class="exercise-wrapper">
-    <div class="exercise"
-    id = "exercise">
-     
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="exercise-wrapper">
+      <div class="exercise" id="exercise"></div>
     </div>
-</div>
 
+    <a href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
 
-    <div class="menu"
-    id = "menu">
-    <p class="menu-title">Menu</p>
+    <div class="menu" id="menu">
+      <button class="new-exercise" id="new-exercise-btn">+</button>
 
-        <button class="new-exercise" 
-        id = "new-exercise-btn">+</button>
-
-        <!-- <button class="save"
+      <!-- <button class="save"
         id = "save-btn">Save</button> -->
-        <!-- <button class = "remove-all"
+      <!-- <button class = "remove-all"
         id = "remove-all">Remove All Books</button> -->
 
-        <button class="calculator-btn">
-            Plate Calculator
-        </button>
+      <div class="calculator-div">
+        <div class="form">
+          <label for="weight"> Weight: </label>
 
-        <div class="calculator-div">
-            <div class="form">
-                <label for = "weight"> Weight:</label> 
-                            <br>
-                    
-                            <input type = "text" 
-                            class = "weight-input"
-                            id = "weight-input"
-                            name = "weight"
-                            value = 135>
-                            <br>
-                    
-                            <button class = "calculate"
-                            id ="calculate"> Calculate</button>
+          <br />
 
-            </div>
-            
-            
+          <input
+            type="text"
+            class="weight-input"
+            id="weight-input"
+            name="weight"
+            value="135"
+          />
+          <br />
 
+          <button class="calculate" id="calculate">Calculate</button>
+          <br />
+          <span class="round">(to nearest 5 lbs)</span>
         </div>
-        <div class="result"
-            id = "result-div">
-              Plates per side:  
+      </div>
 
-            </div>
+      <div class="result-container">
+        <div class="result" id="original">
+          <!-- <span class="platesPer">Plates per side: </span> -->
+        </div>
+      </div>
 
-        <!-- <div class="author">Created by <a href = 'https://github.com/Sunnfast'>Simone Christen</a>.</div> -->
+      <!-- <div class="author">Created by <a href = 'https://github.com/Sunnfast'>Simone Christen</a>.</div> -->
     </div>
-</body>
-<script src = script.js></script>
+  </body>
+  <script src="script.js"></script>
 </html>
