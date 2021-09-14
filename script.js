@@ -523,38 +523,46 @@ plateCalcBtn.onclick = function (e) {
     }
   }
 
+  let oldDiv = document.querySelector("#original");
+  let newDiv = document.createElement("div");
+  let container = document.querySelector(".result-container");
+
+  let platesPer = document.createElement("p");
+  platesPer.innerText = "Plates per side:";
+  platesPer.classList.add = "platesPer";
+
   let biggestPlatesPara = document.createElement("p");
+  biggestPlatesPara.innerText = biggestPlates + " x 45 lbs";
+
   let secondBiggestPara = document.createElement("p");
+  secondBiggestPara.innerText = secondBiggest + " x 25 lbs";
+
   let thirdbiggestPara = document.createElement("p");
+  thirdbiggestPara.innerText = thirdbiggest + " x 10 lbs";
+
   let secondSmallestPara = document.createElement("p");
+  secondSmallestPara.innerText = secondSmallest + " x 5 lbs";
+
   let smallestPara = document.createElement("p");
+  smallestPara.innerText = smallest + " x 2.5 lbs";
 
-  biggestPlatesPara.classList = "plates";
-  secondBiggestPara.classList = "plates";
-  thirdbiggestPara.classList = "plates";
-  secondSmallestPara.classList = "plates";
-  smallestPara.classList = "plates";
+  newDiv.append(
+    platesPer,
+    biggestPlatesPara,
+    secondSmallestPara,
+    thirdbiggestPara,
+    secondSmallestPara,
+    smallestPara
+  );
 
-  let biggestPlatesNode = document.createTextNode(biggestPlates + " x 45 lbs");
-  let secondBiggestNode = document.createTextNode(secondBiggest + " x 25 lbs");
-  let thirdbiggestNode = document.createTextNode(thirdbiggest + " x 10 lbs");
-  let secondSmallestNode = document.createTextNode(secondSmallest + " x 5 lbs");
-  let smallestNode = document.createTextNode(smallest + " x 2.5 lbs");
-  biggestPlatesPara.appendChild(biggestPlatesNode);
-  secondBiggestPara.appendChild(secondBiggestNode);
-  thirdbiggestPara.appendChild(thirdbiggestNode);
-  secondSmallestPara.appendChild(secondSmallestNode);
-  smallestPara.appendChild(smallestNode);
+  newDiv.classList.add = "calc-results";
 
-  plateResult.appendChild(biggestPlatesPara);
-  plateResult.appendChild(secondBiggestPara);
-  plateResult.appendChild(thirdbiggestPara);
-  plateResult.appendChild(secondSmallestPara);
-  plateResult.appendChild(smallestPara);
+  container.replaceChild(newDiv, oldDiv);
+  newDiv.id = "original";
 
-  // plateResult.removeChild(biggestPlatesPara);
-  // plateResult.removeChild(secondBiggestPara);
-
-  // plateResult.appendChild(biggestPlatesPara);
-  // plateResult.appendChild(secondBiggestPara);
+  biggestPlatesPara.classList.add = "plates";
+  secondBiggestPara.classList.add = "plates";
+  thirdbiggestPara.classList.add = "plates";
+  secondSmallestPara.classList.add = "plates";
+  smallestPara.classList.add = "plates";
 };
