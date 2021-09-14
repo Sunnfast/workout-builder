@@ -572,5 +572,4 @@ const menuBars = document.getElementsByClassName("bar");
 
 menuBtn.addEventListener("click", () => {
   menu.classList.toggle("active");
-  menuBars.classList.toggle("white");
 });

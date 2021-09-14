@@ -62,7 +62,7 @@ h2 {
 
 .menu.active {
   display: flex;
-  position: absolute;
+
   bottom: 0;
   position: fixed;
   background-color: var(--veryDarkGray);
@@ -71,29 +71,27 @@ h2 {
   justify-content: space-evenly;
   padding: 1rem;
   opacity: 0.8;
+  align-items: center;
 }
 
 .toggle-button {
-  position: absolute;
+  position: fixed;
   bottom: 0.75rem;
-  right: 1rem;
+  left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
   height: 21px;
+  z-index: 3;
 }
 
 .bar {
   z-index: 2;
   height: 5px;
   width: 100%;
-  background-color: var(--veryDarkGray);
+  background-color: var(--blueAccent);
   border-radius: 10px;
-}
-
-.white {
-  background-color: var(--textColorLight);
 }
 
 /* .menu:hover,
@@ -129,6 +127,7 @@ menu:focus {
   font-size: 1.5em;
   font-weight: 700;
   margin: 1rem;
+  max-height: 10vh;
 }
 
 .calculator-div {
