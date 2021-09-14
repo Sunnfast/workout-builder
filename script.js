@@ -563,3 +563,14 @@ plateCalcBtn.onclick = function (e) {
   container.replaceChild(newDiv, oldDiv);
   newDiv.id = "original";
 };
+
+// menu toggle
+
+const menuBtn = document.querySelector(".toggle-button");
+const menu = document.getElementsByClassName("menu")[0];
+const menuBars = document.getElementsByClassName("bar");
+
+menuBtn.addEventListener("click", () => {
+  menu.classList.toggle("active");
+  menuBars.classList.toggle("white");
+});
