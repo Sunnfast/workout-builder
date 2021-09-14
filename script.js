@@ -476,6 +476,8 @@ let plateCalcBtn = document.getElementById("calculate");
 let plateResult = document.getElementById("result-div");
 
 plateCalcBtn.onclick = function (e) {
+  //imperial units only at this time
+
   let biggestPlates; // 45 lbs
   let secondBiggest; // 25 lbs
   let thirdbiggest; // 10 lbs
@@ -523,6 +525,7 @@ plateCalcBtn.onclick = function (e) {
     }
   }
 
+  // plate calc results display
   let oldDiv = document.querySelector("#original");
   let newDiv = document.createElement("div");
   let container = document.querySelector(".result-container");
@@ -549,7 +552,7 @@ plateCalcBtn.onclick = function (e) {
   newDiv.append(
     platesPer,
     biggestPlatesPara,
-    secondSmallestPara,
+    secondBiggestPara,
     thirdbiggestPara,
     secondSmallestPara,
     smallestPara
@@ -559,10 +562,4 @@ plateCalcBtn.onclick = function (e) {
 
   container.replaceChild(newDiv, oldDiv);
   newDiv.id = "original";
-
-  biggestPlatesPara.classList.add = "plates";
-  secondBiggestPara.classList.add = "plates";
-  thirdbiggestPara.classList.add = "plates";
-  secondSmallestPara.classList.add = "plates";
-  smallestPara.classList.add = "plates";
 };
