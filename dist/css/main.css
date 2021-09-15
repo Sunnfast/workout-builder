@@ -123,30 +123,6 @@ h2 {
   margin: 1rem;
 }
 
-.save {
-  position: relative;
-  background-color: #3f94cd;
-  border: none;
-  padding: 1rem;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-  border-radius: 0.5em;
-  font-size: 1.5em;
-  font-weight: 700;
-  margin: 1rem;
-}
-
-.remove-all {
-  position: relative;
-  background-color: #3f94cd;
-  border: none;
-  padding: 0.5rem;
-  font-weight: 600;
-  text-align: center;
-}
-
 .new-exercise:hover,
 .new-exercise:focus,
 .remove-all:hover,
@@ -182,22 +158,6 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-/* .author {
-      color: var(--textColorLight);
-      position: relative;
-      margin-right: 1rem;
-      font-size: 0.75em;
-      padding: 1rem;
-  }
-  
-  .author a {
-      text-decoration: none;
-      color: var(--textColorLight);
-  }
-  
-  .author a:hover, .author a:focus {
-      color: var(--blueAccent);
-  } */
 .status {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
