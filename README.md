@@ -38,13 +38,13 @@ Desktop - Menu Closed
 ![Screenshot: Desktop](/images/desktop-closed.png)
 
 Desktop - Menu Open
-![Screenshot: Desktop2](/images/desktop-open.png)
+![Screenshot: Desktop 2](/images/desktop-open.png)
 
 Mobile - Menu Closed
-![Screenshot: Mobile 2](/images/mobile-closed.png)
+![Screenshot: Mobile](/images/mobile-closed.png)
 
 Mobile - Menu Open
-![Screenshot: Mobile](/images/mobile-open.png)
+![Screenshot: Mobile 2](/images/mobile-open.png)
 
 ## My process
 
