@@ -2,7 +2,7 @@ let myLibrary = [];
 myLibrary[0] = new Exercise(
   "Bench Press",
   "chest, biceps, triceps",
-  315,
+  135,
   5,
   5,
   "incomplete",
@@ -11,7 +11,7 @@ myLibrary[0] = new Exercise(
 myLibrary[1] = new Exercise(
   "Deadlift",
   "posterior chain",
-  405,
+  225,
   5,
   5,
   "incomplete",
@@ -78,8 +78,7 @@ function displayAllExercises(library) {
     statusToggleBtn.textContent = "Status: ";
     statusToggleBtn.classList = "status-btn";
 
-    namePara.appendChild(statusToggleBtn);
-    namePara.appendChild(statusSpan);
+    namePara.append(statusToggleBtn, statusSpan);
 
     let targetPara = document.createElement("p");
     let targetNode = document.createTextNode(library[i].target);
@@ -88,11 +87,11 @@ function displayAllExercises(library) {
 
     let weightPara = document.createElement("p");
     let weightNode = document.createTextNode(
-      library[i].sets +
-        " sets x " +
-        library[i].reps +
-        " reps @ " +
-        library[i].weight
+      `${library[i].sets}
+        sets x
+        ${library[i].reps}
+        reps @ 
+        ${library[i].weight}`
     );
     weightPara.appendChild(weightNode);
 
@@ -103,7 +102,7 @@ function displayAllExercises(library) {
 
     let completedPara = document.createElement("p");
     let completedNode = document.createTextNode(
-      "Sets Completed: " + library[i].setsCompleted
+      `Sets Completed: ${library[i].setsCompleted}`
     );
 
     let setCounterBtn = document.createElement("button");
@@ -115,17 +114,16 @@ function displayAllExercises(library) {
     setsMinusBtn.textContent = "-";
 
     let repsPara = document.createElement("p");
-
-    completedPara.appendChild(completedNode);
-    completedPara.appendChild(setCounterBtn);
-    completedPara.appendChild(setsMinusBtn);
+    completedPara.append(completedNode, setCounterBtn, setsMinusBtn);
 
     let exerciseDiv = document.createElement("div");
-    exerciseDiv.appendChild(namePara);
-    exerciseDiv.appendChild(targetPara);
-    exerciseDiv.appendChild(weightPara);
-    exerciseDiv.appendChild(completedPara);
-    exerciseDiv.appendChild(repsPara);
+    exerciseDiv.append(
+      namePara,
+      targetPara,
+      weightPara,
+      completedPara,
+      repsPara
+    );
 
     let exerciseContainer = document.getElementById("exercise");
     exerciseContainer.appendChild(exerciseDiv);
@@ -151,10 +149,10 @@ function displayAllExercises(library) {
 
     statusToggleBtn.onclick = function (e) {
       status1 = myLibrary[i].status;
-      if (status1 == "complete " + String.fromCodePoint(0x1f4aa)) {
-        myLibrary[i].status = "incomplete";
+      if (status1 == `complete ` + String.fromCodePoint(0x1f4aa)) {
+        myLibrary[i].status = `incomplete`;
       } else {
-        myLibrary[i].status = "complete " + String.fromCodePoint(0x1f4aa);
+        myLibrary[i].status = `complete ` + String.fromCodePoint(0x1f4aa);
       }
 
       namePara.removeChild(statusSpan); // refactor: just replace childnode instead of deleting and re-appending
@@ -174,11 +172,9 @@ function displayAllExercises(library) {
       completedPara.removeChild(setsMinusBtn);
       completedPara.removeChild(completedNode);
       completedNode = document.createTextNode(
-        "Sets Completed: " + library[i].setsCompleted
+        `Sets Completed: ${library[i].setsCompleted}`
       );
-      completedPara.appendChild(completedNode);
-      completedPara.appendChild(setCounterBtn);
-      completedPara.appendChild(setsMinusBtn);
+      completedPara.append(completedNode, setCounterBtn, setsMinusBtn);
     };
 
     setsMinusBtn.onclick = function (e) {
@@ -208,14 +204,13 @@ function displayAllExercises(library) {
         weightPara.removeChild(weightNode);
         weightPara.removeChild(conversionBtn);
         weightNode = document.createTextNode(
-          library[i].sets +
-            " sets x " +
-            library[i].reps +
-            " reps @ " +
-            library[i].weight
+          `${library[i].sets}
+             sets x 
+            ${library[i].reps}
+             reps @ 
+            ${library[i].weight}`
         );
-        weightPara.appendChild(weightNode);
-        weightPara.appendChild(conversionBtn);
+        weightPara.append(weightNode, conversionBtn);
       } else if (conversionBtn.textContent == "kg") {
         myLibrary[i].weight = Math.round(myLibrary[i].weight * 2.2);
         conversionBtn.textContent = "lbs";
@@ -230,8 +225,7 @@ function displayAllExercises(library) {
             library[i].weight
         );
 
-        weightPara.appendChild(weightNode);
-        weightPara.appendChild(conversionBtn);
+        weightPara.append(weightNode, conversionBtn);
       }
     };
 
@@ -265,12 +259,9 @@ function addNewestExercise(library) {
 
   let weightPara = document.createElement("p");
   let weightNode = document.createTextNode(
-    library[length - 1].sets +
-      " sets x " +
-      library[length - 1].reps +
-      " reps @ " +
-      library[length - 1].weight +
-      " lbs"
+    `${library[length - 1].sets} sets x ${library[length - 1].reps} reps @ ${
+      library[length - 1].weight
+    } lbs`
   );
   weightPara.appendChild(weightNode);
 
@@ -281,7 +272,7 @@ function addNewestExercise(library) {
 
   let completedPara = document.createElement("p");
   let completedNode = document.createTextNode(
-    "Sets Completed: " + library[length - 1].setsCompleted
+    `Sets Completed: ${library[length - 1].setsCompleted}`
   );
 
   let setCounterBtn = document.createElement("button");
@@ -294,16 +285,10 @@ function addNewestExercise(library) {
 
   let repsPara = document.createElement("p");
 
-  completedPara.appendChild(completedNode);
-  completedPara.appendChild(setCounterBtn);
-  completedPara.appendChild(setsMinusBtn);
+  completedPara.append(completedNode, setCounterBtn, setsMinusBtn);
 
   let exerciseDiv = document.createElement("div");
-  exerciseDiv.appendChild(namePara);
-  exerciseDiv.appendChild(targetPara);
-  exerciseDiv.appendChild(weightPara);
-  exerciseDiv.appendChild(completedPara);
-  exerciseDiv.appendChild(repsPara);
+  exerciseDiv.append(namePara, targetPara, weightPara, completedPara, repsPara);
 
   let exerciseContainer = document.getElementById("exercise");
   exerciseContainer.appendChild(exerciseDiv);
@@ -329,11 +314,11 @@ function addNewestExercise(library) {
     let i = thisExercise.dataset.indexNumber;
     let status1 = myLibrary[length - 1].status;
 
-    if (status1 == "complete " + String.fromCodePoint(0x1f4aa)) {
-      myLibrary[length - 1].status = "incomplete";
+    if (status1 == `complete ` + String.fromCodePoint(0x1f4aa)) {
+      myLibrary[length - 1].status = `incomplete`;
     } else {
       myLibrary[length - 1].status =
-        "complete " + String.fromCodePoint(0x1f4aa);
+        `complete ` + String.fromCodePoint(0x1f4aa);
     }
     namePara.removeChild(statusSpan); // refactor: just replace childnode instead of deleting and re-appending
     statusSpan = document.createElement("span");
@@ -352,11 +337,10 @@ function addNewestExercise(library) {
     completedPara.removeChild(setsMinusBtn);
     completedPara.removeChild(completedNode);
     completedNode = document.createTextNode(
-      "Sets Completed: " + library[i].setsCompleted
+      `Sets Completed: ${library[i].setsCompleted}`
     );
-    completedPara.appendChild(completedNode);
-    completedPara.appendChild(setCounterBtn);
-    completedPara.appendChild(setsMinusBtn);
+
+    completedPara.append(completedNode, setCounterBtn, setsMinusBtn);
   };
 
   setsMinusBtn.onclick = function (e) {
@@ -371,7 +355,7 @@ function addNewestExercise(library) {
     completedPara.removeChild(setsMinusBtn);
     completedPara.removeChild(completedNode);
     completedNode = document.createTextNode(
-      "Sets Completed: " + library[length - 1].setsCompleted
+      `Sets Completed: ${library[length - 1].setsCompleted}`
     );
     completedPara.appendChild(completedNode);
     completedPara.appendChild(setCounterBtn);
@@ -388,14 +372,13 @@ function addNewestExercise(library) {
       weightPara.removeChild(weightNode);
       weightPara.removeChild(conversionBtn);
       weightNode = document.createTextNode(
-        library[length - 1].sets +
-          " sets x " +
-          library[length - 1].reps +
-          " reps @ " +
-          library[length - 1].weight
+        `${library[length - 1].sets}
+           sets x 
+          ${library[length - 1].reps}
+           reps @ 
+          ${library[length - 1].weight}`
       );
-      weightPara.appendChild(weightNode);
-      weightPara.appendChild(conversionBtn);
+      weightPara.append(weightNode, conversionBtn);
     } else if (conversionBtn.textContent == "kg") {
       myLibrary[length - 1].weight = Math.round(
         myLibrary[length - 1].weight * 2.2
@@ -405,15 +388,14 @@ function addNewestExercise(library) {
       weightPara.removeChild(weightNode);
       weightPara.removeChild(conversionBtn);
       weightNode = document.createTextNode(
-        library[length - 1].sets +
-          " sets x " +
-          library[length - 1].reps +
-          " reps @ " +
-          library[length - 1].weight
+        `${library[length - 1].sets}
+           sets x 
+          ${library[length - 1].reps}
+           reps @ 
+          ${library[length - 1].weight}`
       );
 
-      weightPara.appendChild(weightNode);
-      weightPara.appendChild(conversionBtn);
+      weightPara.append(weightNode, conversionBtn);
     }
   };
 
