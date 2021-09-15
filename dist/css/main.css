@@ -1,0 +1,345 @@
+body {
+  background-color: #1a4765;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.15em;
+}
+
+.exercise {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(320px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  color: white;
+  grid-gap: 1rem;
+}
+
+.exercise > div {
+  background-color: #212121;
+  padding: 1rem;
+  margin: 0rem;
+  margin-bottom: 2rem;
+  border-radius: 1em;
+}
+
+h2 {
+  margin: 0rem;
+}
+
+.exercise > div > p {
+  color: #3f94cd;
+  margin: 0.25rem;
+}
+
+.exercise > div > button {
+  background-color: #3f94cd;
+  border: none;
+  padding: 0.5rem;
+  font-weight: 600;
+  border-radius: 0.5em;
+}
+
+.menu {
+  display: none;
+}
+
+.menu.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  bottom: 0;
+  position: fixed;
+  background-color: #212121;
+  width: 100%;
+  left: 0;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 1rem;
+  opacity: 0.8;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.toggle-button {
+  position: fixed;
+  bottom: 0.75rem;
+  left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  z-index: 3;
+}
+
+.bar {
+  z-index: 2;
+  height: 5px;
+  width: 100%;
+  background-color: #3f94cd;
+  border-radius: 10px;
+}
+
+.new-exercise {
+  position: relative;
+  background-color: #3f94cd;
+  border: none;
+  padding: 1rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0.5em;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 1rem;
+  max-height: 10vh;
+}
+
+.calculator-div {
+  max-width: 30%;
+}
+
+.calculator-btn {
+  position: relative;
+  background-color: #3f94cd;
+  border: none;
+  padding: 1rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0.5em;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 1rem;
+}
+
+.save {
+  position: relative;
+  background-color: #3f94cd;
+  border: none;
+  padding: 1rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0.5em;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 1rem;
+}
+
+.remove-all {
+  position: relative;
+  background-color: #3f94cd;
+  border: none;
+  padding: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.new-exercise:hover,
+.new-exercise:focus,
+.remove-all:hover,
+.remove-all:focus,
+.remove-exercise-btn:hover,
+.remove-exercise-btn:focus,
+.status-btn:hover,
+.status-btn:focus,
+.save:hover,
+.save:focus,
+.conversion-btn:hover,
+.calculator-btn:hover,
+.calculator-btn:focus,
+.calculate:hover,
+.calculate:focus,
+.set-counter-btn:hover,
+.set-counter-btn:focus,
+.set-minus-btn:hover,
+.set-minus-btn:focus {
+  cursor: pointer;
+  color: #3f94cd;
+  background-color: black;
+}
+
+.status-btn {
+  margin: 0.5rem;
+  background-color: #3f94cd;
+  border: none;
+  padding: 0.3rem;
+  font-weight: 600;
+  border-radius: 0.5em;
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* .author {
+      color: var(--textColorLight);
+      position: relative;
+      margin-right: 1rem;
+      font-size: 0.75em;
+      padding: 1rem;
+  }
+  
+  .author a {
+      text-decoration: none;
+      color: var(--textColorLight);
+  }
+  
+  .author a:hover, .author a:focus {
+      color: var(--blueAccent);
+  } */
+.status {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-weight: bolder;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.6em;
+}
+
+.target-paragraph {
+  font-style: italic;
+}
+
+.set-counter-btn {
+  background-color: #3f94cd;
+  border: none;
+  padding: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-weight: 600;
+  border-radius: 0.5em;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5em;
+}
+
+.set-minus-btn {
+  background-color: #3f94cd;
+  border: none;
+  padding: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-weight: 600;
+  border-radius: 0.5em;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.5em;
+}
+
+.conversion-btn {
+  background-color: #3f94cd;
+  border: none;
+  padding: 0.3rem;
+  font-weight: 600;
+  border-radius: 0.5em;
+  margin-left: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.result {
+  color: white;
+  margin: 0rem;
+  padding: 0rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.platesPer {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+}
+
+.calculate {
+  background-color: #3f94cd;
+  border: none;
+  padding: 0.3rem;
+  font-weight: 600;
+  border-radius: 0.5em;
+  margin-top: 1rem;
+}
+
+label {
+  color: white;
+}
+
+.plates {
+  font-size: 0.75em;
+}
+
+.weight-input {
+  background-color: #3f94cd;
+  color: white;
+  border: none;
+  border-radius: 0.25em;
+  font-weight: 600;
+  font-size: 1em;
+  width: 40%;
+}
+
+.plates {
+  margin: 0;
+}
+
+.round {
+  font-size: 3vw;
+  /*adjust in media query for larger screen sizes */
+  color: white;
+}
+
+#original {
+  max-width: 25vw;
+}
+
+#original p {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 415px) {
+  .status-btn {
+    font-size: 0.4em;
+  }
+  .status {
+    font-size: 0.4em;
+  }
+  .weight-input {
+    width: 100%;
+  }
+  .calculate {
+    padding: 1rem;
+    font-size: 5vw;
+  }
+}
+
+@media (min-width: 650px) {
+  .round {
+    font-size: 1.5vw;
+  }
+  .weight-input {
+    width: 10vw;
+  }
+  .calculate {
+    padding: 1rem;
+    font-size: 1.75vw;
+  }
+}
+/*# sourceMappingURL=main.css.map */

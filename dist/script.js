@@ -467,9 +467,9 @@ plateCalcBtn.onclick = function (e) {
   let smallest; // 2.5 lbs
   let remainder;
 
-  let weightNum = Math.abs(
-    Number(document.getElementById("weight-input").value)
-  );
+  let weightInput = document.getElementById("weight-input").value;
+
+  let weightNum = Math.abs(Number(weightInput));
 
   // for lbs assuming a 45 lb barbell
 
