@@ -35,17 +35,16 @@ Users should be able to:
 Taken on September 14, 2021.
 
 Desktop - Menu Closed
-![Screenshot: Desktop](/images/desktop-open.png)
+![Screenshot: Desktop](/images/desktop-closed.png)
 
 Desktop - Menu Open
-![Screenshot: Desktop2](/images/desktop-closed.png)
+![Screenshot: Desktop2](/images/desktop-open.png)
 
 Mobile - Menu Closed
+![Screenshot: Mobile 2](/images/mobile-closed.png)
 
 Mobile - Menu Open
 ![Screenshot: Mobile](/images/mobile-open.png)
-
-![Screenshot: Mobile 2](/images/mobile-closed.png)
 
 ## My process
 
